@@ -1,3 +1,4 @@
+import os
 import streamlit as st
 import numpy as np
 from tensorflow.keras.models import load_model
@@ -5,7 +6,8 @@ from tensorflow.keras.preprocessing import image
 from PIL import Image
 
 # Load trained model
-model = load_model("E:/Mandeep/360 DigiTMG/PROJECTS/LIVER DAMAGE DETECTION PROJECT/Deployment/DenseNet121_best_model.h5")
+MODEL_PATH = os.getenv("MODEL_PATH", "DenseNet121_best_model.h5")
+model = load_model(MODEL_PATH)
 
 # Class names
 class_names = ["CC", "HCC", "NORMAL LIVER"]
